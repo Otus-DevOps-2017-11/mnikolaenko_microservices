@@ -7,3 +7,19 @@ temp file with "Hello world".
 Dockerfile describes app container build. The build of the container includes
 installation of mongo db, app requirements, downloading app code from repo
 copying configs and initial script.
+
+## reddit-microservices
+```ui```, ```comment``` and ```post``` microservices are buit useing Dockerfiles
+in ```reddit-microservices/<appropriate_service_name>```. Containers are
+uploaded to dockerhub ```mnikolaenko/<container_name>```.
+
+To start full application:
+```
+$ docker run -d --network=reddit --network-alias post_db --network-alias comment_db -v reddit_db:/data/db mongo:latest
+
+$ docker run -d --network=reddit --network-alias post mnikolaenko/post:1.0
+
+$ docker run -d --network=reddit --network-alias comment mnikolaenko/comment:1.0
+
+$ docker run -d --network=reddit -p 9292:9292 mnikolaenko/ui:2.0
+```
