@@ -23,3 +23,9 @@ $ docker run -d --network=reddit --network-alias comment mnikolaenko/comment:1.0
 
 $ docker run -d --network=reddit -p 9292:9292 mnikolaenko/ui:2.0
 ```
+
+## docker-compose
+Use ```docker-compose up -d``` to run all microservice containers. Configuration
+is described in ```reddit-microservices/docker-compose.yml```. You should create
+```.env``` file in ```reddit-microservices``` to define variables used in
+```docker-compose.yml```.
